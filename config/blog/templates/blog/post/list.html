@@ -6,7 +6,7 @@
 {% block content %}
   <h1>Voice of the World</h1>
   {% if tag %}
-    <h2>Posts tagged with "{{ tag.name }}"</h2>
+    <h2>Посты с тегами "{{ tag.name }}"</h2>
   {% endif %}
   {% for post in posts %}
     <h2>
@@ -15,7 +15,7 @@
       </a>
     </h2>
     <p class="tags">
-      Tags:
+      Теги:
       {% for tag in post.tags.all %}
         <a href="{% url "blog:post_list_by_tag" tag.slug %}">
           {{ tag.name }}
@@ -24,7 +24,7 @@
       {% endfor %}
     </p>
     <p class="date">
-      Published {{ post.publish }} by {{ post.author }}
+      Опубликовано {{ post.publish }} автором {{ post.author }}
     </p>
     {{ post.body|markdown|truncatewords_html:30}}
   {% endfor %}

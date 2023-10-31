@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Log-in{% endblock %}
+{% block title %}Авторизация{% endblock %}
 
 {% block content %}
-    <h1>Log-in</h1>
+    <h1>Авторизация</h1>
     {% if form.errors %}
         <p>
-            Your username and password didn't match.
-            Please try again.
+            Имя пользователя или пароль было введёно неверно.
+            Пожалуйста, попробуйте еще раз.
         </p>
     {% else %}
         <p>
-            Please, use the following form to log-in.
-            If you don't have an account
-            <a href="{% url "register" %}">register here</a>.
+            Пожалуйста, используйте следующую форму для входа.
+            Если у вас нет учетной записи
+            <a href="{% url "register" %}">зарегистрируйтесь здесь</a>.
         </p>
     {% endif %}
     <div class="login-form">
@@ -21,11 +21,11 @@
             {{ form.as_p }}
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}" />
-            <p><input type="submit" value="Log-in"></p>
+            <p><input type="submit" value="Авторизация"></p>
         </form>
         <p>
             <a href="{% url "password_reset" %}">
-                Forgotten your password?
+                Забыли пароль?
             </a>
         </p>
     </div>

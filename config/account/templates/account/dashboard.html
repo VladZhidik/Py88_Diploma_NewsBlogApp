@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}Главная страница{% endblock %}
 
 {% block content %}
-    <h1>Dashboard</h1>
+    <h1>Voice of the World</h1>
     <p>
-        Welcome to your dashboard. You can <a href="{% url 'edit' %}">edit your profile</a>
-or <a href="{% url 'password_change' %}">change your password</a>.
+        Добро пожаловать на главную страницу блога Voice of the World! Здесь вы можете <a href="{% url 'edit' %}">изменить свою учётную запись</a>
+или <a href="{% url 'password_change' %}">изменить свой пароль</a>.
     </p>
 {% endblock %}
