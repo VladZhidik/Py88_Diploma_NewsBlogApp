@@ -1,16 +1,17 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage,\
                                   PageNotAnInteger
 from django.views.generic import ListView
 from django.contrib.postgres.search import SearchVector, \
     SearchQuery, SearchRank
-from .forms import EmailPostForm, CommentForm, SearchForm
+from .forms import EmailPostForm, CommentForm, SearchForm, PostForm
 from django.core.mail import send_mail
 from django.views.decorators.http import require_POST
 from taggit.models import Tag
 from django.db.models import Count
 from django.contrib.postgres.search import TrigramSimilarity
+from django.utils import timezone
 
 
 def post_list(request, tag_slug=None):
@@ -142,3 +143,22 @@ def post_search(request):
                   {'form': form,
                    'query': query,
                    'results': results})
+
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.publish = timezone.now()
+            post.save()
+    else:
+        form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def dashboard(request):
+    return render(request,
+                  'account/dashboard.html',
+                  {'section': 'dashboard'})
