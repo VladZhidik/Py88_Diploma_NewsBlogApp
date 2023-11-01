@@ -31,9 +31,9 @@
 Рекомендации по запуску:
 -
 - Склонируйте проект с помощью команды:
-https://github.com/VladZhidik/Py88_Diploma_NewsBlogApp.git
-- Зайдите в папку с проектом и выполните команду:
-"source bvenv/bin/activate" для активации виртуального окружения;
+git clone https://github.com/VladZhidik/Py88_Diploma_NewsBlogApp.git
+- Зайдите в папку с проектом и выполните команды:
+"python -m venv bvenv" и "source bvenv/bin/activate" для создания и активации виртуального окружения;
 - Выполните команду "pip install -r requirements.txt" для установки всех необходимых для запуска программы компонентов;
 - Зайдите в папку config/ и выполните команду "python manage.py migrate" для запуска миграций в базе данных;
 - Выполните команды "python manage.py createsuperuser" и "python manage.py runserver" для создания режима администратора и запуска сервера соответственно;

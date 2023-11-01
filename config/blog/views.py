@@ -3,8 +3,6 @@ from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage,\
                                   PageNotAnInteger
 from django.views.generic import ListView
-from django.contrib.postgres.search import SearchVector, \
-    SearchQuery, SearchRank
 from .forms import EmailPostForm, CommentForm, SearchForm, PostForm
 from django.core.mail import send_mail
 from django.views.decorators.http import require_POST
